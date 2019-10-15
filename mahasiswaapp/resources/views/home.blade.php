@@ -4,7 +4,7 @@
 
 @section('content')
     <div class="jumbotron">
-        <h1>To Do List App</h1>
-        <p>Aplikasi Mencatat Pekerjaan yang akan dikerjakan</p>
+        <h1>Mahasiswa App</h1>
+        <p>Aplikasi Mencatat Biodata Mahasiswa</p>
     </div>
 @endsection
