@@ -8,9 +8,14 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="{{ route("list.mhs") }}">Data Mahasiswa <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="{{ route("list.mhs") }}">Mahasiswa <span class="sr-only">(current)</span></a>
             </li>
-            
+            <li class="nav-item active">
+                <a class="nav-link" href="{{ route("list.matkul") }}">Mata Kuliah <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="{{ route("list.kelas") }}">Kelas <span class="sr-only">(current)</span></a>
+            </li>
         </ul>
         
     </div>

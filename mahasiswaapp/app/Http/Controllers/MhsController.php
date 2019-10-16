@@ -16,21 +16,21 @@ class MhsController extends Controller
         return view("mahasiswa.list")->with(compact("data"));
       
     }
+    
 
-    public function simpanform(Request $request){
+    public function simpanmhs(Request $request){
         DB::table('tblmhs')->insert(
             ['nim'=>$request->input('nim'),
             'nama'=>$request->input('nama'),
             'alamat'=>$request->input('alamat'),
-            'telepon'=>$request->input('telepon')]
-        
-            
+            'telepon'=>$request->input('telepon')]                   
         );
 
         return redirect()->route('list.mhs');
     }
+    
 
-    public function editform(Request $request,$id){
+    public function editmhs(Request $request,$id){
         DB::table('tblmhs')->where('nim',$id)->update([
         'nim'=>$request->input('nim'),
         'nama'=>$request->input('nama'),
@@ -39,19 +39,23 @@ class MhsController extends Controller
 
         return redirect()->route('list.mhs');
     }
+    
+
     public function formmhs(){
         return view("mahasiswa.form");
     }
+    
 
     public function deletemhs($nim){
         DB::table('tblmhs')->where('nim',$nim)->delete();
         return redirect()->route('list.mhs');
     }
+    
 
-    public function ubahmhs($nim){
-        $data = DB::table("tblmhs")->where('nim',$nim)->get();
-        $edit = 1;
-        return view("mahasiswa.form")->with(compact("data","edit"));
+    public function ubahmhs($id){
+        $data = DB::table("tblmhs")->where('id',$id)->get();
+        return view("matkul.form")->with(compact("data"));
       
     }
+    
 }
