@@ -34,7 +34,7 @@
             </tbody>
             <tfoot>
                 <tr>
-                    <td colspan="2">Jumlah Mahasiswa</td>
+                    <td colspan="4">Jumlah Mahasiswa</td>
                     <td colspan="2">{{$data->count()}} Mahasiswa</td>
                 </tr>
             </tfoot>

@@ -40,16 +40,7 @@ class MhsController extends Controller
         return redirect()->route('list.mhs');
     }
     public function formmhs(){
-        
-
-        return view("mahasiswa.form",[
-                "data"=>[
-                    [
-                        "nim" => "",
-                        "nama"=>"",
-                        "alamat"=>""                  
-                ]
-                    ],["edit"=>0]]);
+        return view("mahasiswa.form");
     }
 
     public function deletemhs($nim){
