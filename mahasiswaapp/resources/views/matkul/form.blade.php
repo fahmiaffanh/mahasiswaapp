@@ -31,30 +31,10 @@
             <label for="semester">Semester</label>
             <select name="semester" id="semester"
                 class="form-control">
-                <option value="1"
-                    {{isset($data)&&$data[0]->semester=="1"?"SELECTED":""}}>
-                    I</option>
-                <option value="2"
-                    {{isset($data)&&$data[0]->semester=="2"?"SELECTED":""}}>
-                    II</option>
-                <option value="3"
-                    {{isset($data)&&$data[0]->semester=="3"?"SELECTED":""}}>
-                    III</option>
-                <option value="4"
-                    {{isset($data)&&$data[0]->semester=="4"?"SELECTED":""}}>
-                    IV</option>
-                <option value="5"
-                    {{isset($data)&&$data[0]->semester=="5"?"SELECTED":""}}>
-                    V</option>
-                <option value="6"
-                    {{isset($data)&&$data[0]->semester=="6"?"SELECTED":""}}>
-                    VI</option>                    
-                <option value="7"
-                    {{isset($data)&&$data[0]->semester=="7"?"SELECTED":""}}>
-                    VII</option>                    
-                <option value="8"
-                    {{isset($data)&&$data[0]->semester=="8"?"SELECTED":""}}>
-                    VIII</option>                    
+                @for ($i = 1; $i <= 8; $i++)
+        <option value="{{$i}}" {{isset($data)&&$data[0]->semester==$i?"SELECTED":""}}>{{$i}}</option>
+                @endfor
+                                    
             </select>
         </div>
         
