@@ -14,6 +14,10 @@ class KelasController extends Controller
       
     }
     public function simpankelas(Request $request){
+        $request->validate([
+            'nama' =>'required|max:25',
+            'ruang' => 'required|digits_between:1,3|numeric'
+        ]);
         DB::table('tblkelas')->insert(
             [
             'nama'=>$request->input('nama'),
@@ -26,6 +30,11 @@ class KelasController extends Controller
         return redirect()->route('list.kelas');
     }
     public function editkelas(Request $request,$id){
+        $request->validate([
+            'nama' =>'required|max:25',
+            'ruang' => 'required|digits_between:1,3|numeric'
+        ]);
+        
         DB::table('tblkelas')->where('id',$id)->update([
         'nama'=>$request->input('nama'),
         'jurusan'=>$request->input('jurusan'),

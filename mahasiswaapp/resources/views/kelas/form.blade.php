@@ -1,13 +1,18 @@
 @extends('main')
 
-@section('title','Form Todo')
+@section('title','Form Kelas')
 
 @section('content')
     <form action="{{isset($data)?route("edit.kelas",[$data[0]->id]):route("simpan.kelas")}}" method="POST">
         @csrf
         <div class="form-group">
             <label for="nama">Nama</label>
-            <input type="text" class="form-control" name="nama" value="{{isset($data)?$data[0]->nama:""}}">
+            <input type="text" class="form-control @error("nama") is-invalid @enderror" name="nama" value="{{old("nama",isset($data)?$data[0]->nama:"")}}">
+        @error("nama")
+            <div class="invalid-feedback">
+                {{$message}}
+            </div>
+        @enderror
         </div>
         <div class="form-group">
             <label for="jurusan">Jurusan</label>
@@ -54,18 +59,23 @@
         </div>
         <div class="form-group">
             <label for="ruang">Ruang</label>
-            <input type="number" class="form-control" name="ruang" max="410" value="{{isset($data)?$data[0]->ruang:""}}">
+            <input type="number" class="form-control @error("ruang") is-invalid @enderror" name="ruang" value="{{old("ruang",isset($data)?$data[0]->ruang:"")}}">
+        @error("ruang")
+            <div class="invalid-feedback">
+                {{$message}}
+            </div>
+        @enderror
         </div>
         <div class="form-group">
             <label for="sesi">Sesi</label>
             <select name="sesi" id="sesi"
                 class="form-control">
-                <option value="1"
-                    {{isset($data)&&$data[0]->sesi=="1"?"SELECTED":""}}>
-                    1</option>
-                <option value="2"
-                {{isset($data)&&$data[0]->sesi=="2"?"SELECTED":""}}>
-                    2</option>
+                <option value="pagi"
+                    {{isset($data)&&$data[0]->sesi=="pagi"?"SELECTED":""}}>
+                    Pagi</option>
+                <option value="sore"
+                {{isset($data)&&$data[0]->sesi=="sore"?"SELECTED":""}}>
+                    Sore</option>
             </select>
         </div>
         

@@ -19,6 +19,13 @@ class MhsController extends Controller
     
 
     public function simpanmhs(Request $request){
+        $request->validate([
+            'nim' => 'required|digits:10|numeric|unique:tblmhs',
+            'nama' =>'required|max:25',
+            'alamat' =>'max:100',
+            'telepon' => 'digits_between:5,15|numeric'
+        ]);
+
         DB::table('tblmhs')->insert(
             ['nim'=>$request->input('nim'),
             'nama'=>$request->input('nama'),
@@ -30,8 +37,15 @@ class MhsController extends Controller
     }
     
 
-    public function editmhs(Request $request,$id){
-        DB::table('tblmhs')->where('nim',$id)->update([
+    public function editmhs(Request $request,$nim){
+        $request->validate([
+            'nim' => 'required|digits:10|numeric',
+            'nama' =>'required|max:25',
+            'alamat' =>'max:100',
+            'telepon' => 'digits_between:5,15|numeric'
+        ]);
+
+        DB::table('tblmhs')->where('nim',$nim)->update([
         'nim'=>$request->input('nim'),
         'nama'=>$request->input('nama'),
         'alamat'=>$request->input('alamat'),
@@ -53,8 +67,8 @@ class MhsController extends Controller
     
 
     public function ubahmhs($id){
-        $data = DB::table("tblmhs")->where('id',$id)->get();
-        return view("matkul.form")->with(compact("data"));
+        $data = DB::table("tblmhs")->where('nim',$id)->get();
+        return view("mahasiswa.form")->with(compact("data"));
       
     }
     

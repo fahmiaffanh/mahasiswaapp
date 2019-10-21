@@ -14,6 +14,10 @@ class MatkulController extends Controller
       
     }
     public function simpanmatkul(Request $request){
+        $request->validate([
+            'nama' =>'required|max:25'
+        ]);
+
         DB::table('tblmatkul')->insert(
             ['id'=>$request->input('id'),
             'nama'=>$request->input('nama'),
@@ -24,6 +28,9 @@ class MatkulController extends Controller
         return redirect()->route('list.matkul');
     }
     public function editmatkul(Request $request,$id){
+        $request->validate([
+            'nama' =>'required|max:25'
+        ]);
         DB::table('tblmatkul')->where('id',$id)->update([
         'nama'=>$request->input('nama'),
         'jurusan'=>$request->input('jurusan'),

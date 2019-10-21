@@ -18,8 +18,8 @@ class CreateTblkelas extends Migration
             $table->string('nama');
             $table->string('jurusan',2);
             $table->string('semester',1);
-            $table->integer('ruang');
-            $table->string('sesi',2);
+            $table->string('ruang',3);
+            $table->enum('sesi',['pagi','sore']);
             $table->timestamps();
         });
     }
