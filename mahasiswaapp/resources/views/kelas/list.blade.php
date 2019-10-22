@@ -10,7 +10,6 @@
                 <a href="{{ route('form.kelas') }}" class="btn btn-success float-right mb-2">+</a>
             <thead>
                 <tr>
-                    <th>ID</th>
                     <th>Nama</th>
                     <th>Jurusan</th>
                     <th>Semester</th>
@@ -23,7 +22,6 @@
                 
                 @foreach ($data as $item)
                 <tr>
-                    <td>{{$item->id}}</td>
                     <td>{{$item->nama}}</td>
                     {{-- ubah tulisan kolom jurusan berdasarkan data dari database --}}
                     <td>{{$item->jurusan=="ti"?"Teknik Informatika":"Sistem Informasi"}}</td>

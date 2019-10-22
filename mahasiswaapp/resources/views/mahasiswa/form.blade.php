@@ -12,11 +12,11 @@
     </ul>
     </div>
 @endif --}}
-    <form action="{{isset($data)?route("edit.mhs",[$data[0]->nim]):route("simpan.mhs")}}" method="POST">
+    <form action="{{isset($data)?route("edit.mhs",[$data->nim]):route("simpan.mhs")}}" method="POST">
         @csrf
         <div class="form-group">
             <label for="nim">NIM</label>
-        <input type="text" class="form-control @error("nim") is-invalid @enderror" name="nim" maxlength="10" value="{{ old("nim",isset($data)?$data[0]->nim:"")}}">
+        <input type="text" class="form-control @error("nim") is-invalid @enderror" name="nim" maxlength="10" value="{{ old("nim",isset($data)?$data->nim:"")}}">
         @error("nim")
                 <div class="invalid-feedback">
                     {{$message}}
@@ -25,7 +25,7 @@
         </div>
         <div class="form-group">
             <label for="nama">Nama</label>
-            <input type="text" class="form-control @error("nama") is-invalid @enderror" name="nama" value="{{isset($data)?$data[0]->nama:""}}">
+            <input type="text" class="form-control @error("nama") is-invalid @enderror" name="nama" value="{{isset($data)?$data->nama:""}}">
         @error("nama")
             <div class="invalid-feedback">
                 {{$message}}
@@ -34,7 +34,7 @@
         </div>
         <div class="form-group">
             <label for="alamat">Alamat</label>
-            <input type="text" class="form-control @error("alamat") is-invalid @enderror" name="alamat" value="{{isset($data)?$data[0]->alamat:""}}">
+            <input type="text" class="form-control @error("alamat") is-invalid @enderror" name="alamat" value="{{isset($data)?$data->alamat:""}}">
         @error("alamat")
             <div class="invalid-feedback">
                 {{$message}}
@@ -43,7 +43,7 @@
         </div>
         <div class="form-group">
             <label for="telepon">Telepon</label>
-            <input type="text" class="form-control @error("telepon") is-invalid @enderror" name="telepon" maxlength="13" value="{{isset($data)?$data[0]->telepon:""}}">
+            <input type="text" class="form-control @error("telepon") is-invalid @enderror" name="telepon" maxlength="13" value="{{isset($data)?$data->telepon:""}}">
         @error("telepon")
             <div class="invalid-feedback">
                 {{$message}}

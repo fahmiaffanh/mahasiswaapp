@@ -5,11 +5,13 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
+use App\Matkul;
+
 class MatkulController extends Controller
 {
     //
     public function listmatkul(){
-        $data = DB::table("tblmatkul")->get();
+        $data = Matkul::all();
         return view("matkul.list")->with(compact("data"));
       
     }
@@ -18,12 +20,7 @@ class MatkulController extends Controller
             'nama' =>'required|max:25'
         ]);
 
-        DB::table('tblmatkul')->insert(
-            ['id'=>$request->input('id'),
-            'nama'=>$request->input('nama'),
-            'jurusan'=>$request->input('jurusan'),
-            'semester'=>$request->input('semester')]                   
-        );
+        Matkul::create($request->except("_token"));
 
         return redirect()->route('list.matkul');
     }
@@ -31,10 +28,8 @@ class MatkulController extends Controller
         $request->validate([
             'nama' =>'required|max:25'
         ]);
-        DB::table('tblmatkul')->where('id',$id)->update([
-        'nama'=>$request->input('nama'),
-        'jurusan'=>$request->input('jurusan'),
-        'semester'=>$request->input('semester')]);
+
+        Matkul::find($id)->update($request->except("_token"));
 
         return redirect()->route('list.matkul');
     }
@@ -42,11 +37,11 @@ class MatkulController extends Controller
         return view("matkul.form");
     }
     public function deletematkul($id){
-        DB::table('tblmatkul')->where('id',$id)->delete();
+        Matkul::destroy($id);
         return redirect()->route('list.matkul');
     }
     public function ubahmatkul($id){
-        $data = DB::table("tblmatkul")->where('id',$id)->get();
+        $data = Matkul::find($id);
         return view("matkul.form")->with(compact("data"));
       
     }
