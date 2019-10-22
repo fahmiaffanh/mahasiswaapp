@@ -21,9 +21,8 @@
                 @foreach ($data as $item)
                 <tr>
                     <td>{{$item->nama}}</td>
-                    {{-- ubah tulisan kolom jurusan berdasarkan data dari database --}}
-                    <td>{{$item->jurusan=="ti"?"Teknik Informatika":"Sistem Informasi"}}</td>
-                    <td>{{$item->semester}}</td>
+                    <td>{{$item->namajurusan}}</td>
+                    <td>{{$item->namasemester}}</td>
                     <td>
                         <a href="{{route('ubah.matkul',[$item->id])}}" class="btn btn-warning btn-block">Ubah</a>
                     </td>
