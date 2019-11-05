@@ -19,11 +19,9 @@
             {{-- user memilih jurusan dari pilihan yang memiliki nilai ti dan si --}}
             <select name="jurusan" id="jurusan"
                 class="form-control">
-                <option value="ti"
-                    {{isset($data)&&$data->jurusan=="ti"?"SELECTED":""}}>
+                <option value="ti" {{ isset($data) && $data->jurusan=="Teknik Informatika"?"selected":'' }}>
                     Teknik Informatika</option>
-                <option value="si"
-                {{isset($data)&&$data->jurusan=="si"?"SELECTED":""}}>
+                    <option value="si" {{ isset($data) && $data->jurusan=="Sistem Informasi"?"selected":'' }}>
                     Sistem Informasi</option>
             </select>
         </div>
@@ -32,7 +30,7 @@
             <select name="semester" id="semester"
                 class="form-control">
                 @for ($i = 1; $i <= 8; $i++)
-                <option value="{{$i}}" {{isset($data)&&$data->semester==$i?"SELECTED":""}}>{{$i}}</option>
+                <option value="{{$i}}" {{isset($data)&&$data->semester==$i?"selected":""}}>{{$i}}</option>
                 @endfor
                                     
             </select>

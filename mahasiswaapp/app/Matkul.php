@@ -11,9 +11,10 @@ class Matkul extends Model
 
     protected $fillable = ["nama","jurusan","semester"];
 
-    public function getNamaJurusanAttribute(){
+    // Accessors
+    public function getJurusanAttribute($value){
         $namajurusan = "";
-        if($this->jurusan=="si"){
+        if($value=="si"){
             $namajurusan = "Sistem Informasi";
         }else{
             $namajurusan = "Teknik Informatika";

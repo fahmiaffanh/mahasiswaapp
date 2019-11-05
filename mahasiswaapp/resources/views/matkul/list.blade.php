@@ -21,7 +21,7 @@
                 @foreach ($data as $item)
                 <tr>
                     <td>{{$item->nama}}</td>
-                    <td>{{$item->namajurusan}}</td>
+                    <td>{{$item->jurusan}}</td>
                     <td>{{$item->namasemester}}</td>
                     <td>
                         <a href="{{route('ubah.matkul',[$item->id])}}" class="btn btn-warning btn-block">Ubah</a>

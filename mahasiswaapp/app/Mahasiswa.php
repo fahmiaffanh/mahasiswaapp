@@ -14,4 +14,8 @@ class Mahasiswa extends Model
     protected $primaryKey = "nim";
 
     protected $keyType = "string";
+
+    public function setNamaAttribute($value){
+        $this->attributes["nama"] = ucfirst(strtolower($value));
+    }
 }

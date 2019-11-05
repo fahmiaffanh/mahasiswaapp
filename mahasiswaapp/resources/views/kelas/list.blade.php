@@ -23,8 +23,7 @@
                 @foreach ($data as $item)
                 <tr>
                     <td>{{$item->nama}}</td>
-                    {{-- ubah tulisan kolom jurusan berdasarkan data dari database --}}
-                    <td>{{$item->jurusan=="ti"?"Teknik Informatika":"Sistem Informasi"}}</td>
+                    <td>{{$item->jurusan}}</td>
                     <td>{{$item->semester}}</td>
                     <td>{{$item->ruang}}</td>
                     <td>{{$item->sesi}}</td>
